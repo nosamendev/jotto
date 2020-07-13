@@ -20,3 +20,22 @@ export const checkProps = (component, conformingProps) => {
   );
   expect(propError).toBeUndefined();
 };
+
+///////////////////////
+//for testing the Input component which is connected to the Store:
+//generates a fresh Store every time:
+
+import rootReducer from '../src/reducers';
+import { createStore } from 'redux';
+
+/**
+ * Create a tsting store with imported reducers, middleware and initial state.
+ * globals: rootReducer
+ * @param {obj} initialState - Initial state for store.
+ * @function storeFactory
+ * @returns {Store} - Redux store.
+ */
+
+export const storeFactory = (initialState) => {
+  createStore(rootReducer, initialState);
+};
